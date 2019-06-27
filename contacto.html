@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nosotros</title>
+    <link rel="icon" href="icons/monkey.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class= "site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="/"><img src="img/logo.svg" alt="Imagen empresarial Bienes Raices"></a>
+
+                <!-- MENU DESPLEGABLE @media -->
+                <div class="mobil-menu"> <!-- creamos esta clase para agregar un boton de hamburguesa que aparecera en dispositivos pequeños -->
+                    <a href="#navegacion"> <!-- este id para relacionarlo con los links del menú -->
+                        <img src="/img/barras.svg" alt="Icono Menu"> <!-- esta imagen se puede editar con CSS para ajustarla al tamaño de pantalla, usando la clase 'mobil-menu' -->
+                    </a>
+                </div> <!-- MENU DESPLEGABLE END -->
+               
+                <nav id="navegacion" class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="anuncio.html">Anuncios</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <h1 class="fw-300 centrar-texto">Contacto</h1>
+   <img src="img/destacada3.jpg" alt="Imagen Principal">
+
+   <main class="contenedor seccion contenido-centrado">
+        <h2 class="fw-300 centrar-texto">Llena el formulario de Contacto</h2>
+
+        <form class="contacto" action=""> <!--Esta estiqueta form para crear formularios-->
+
+                <fieldset> <!--la etiqueta <fieldset permite agrupar campo relacionados-->
+                            <legend>Información Personal</legend> <!--El nombre del campo que esta dentro del fieldset-->
+
+                            <label for="nombre" >Nombre: </label> <!--label es el nombre del campo.for=permite colocar una etiqueta para relacionarlo con el id del input-->
+                            <input type="text" id="nombre" placeholder="Tu Nombre"> <!--type es el tipo de dato que va a recibir el campo del formulario. placeholder: es el valor o texto que aprece en la casilla de este campo. value: es el valor por defecto que apardece en el campo del formulario-->
+
+                            <label for="email">Tu email: </label>
+                            <input type="mail" id="email" placeholder="Tu Correo Electrónico" required> <!--required: para establecer que este canmpo es obligatorio-->
+
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" placeholder="Tu Teléfono" required>
+
+                            <label for="mensaje">Mensaje: </label>
+                            <textarea id="mensaje"></textarea> <!--la etiqueta <textarea cols="30" rows="10"> posee atributos como 'row' y 'cols' para definir el tamaño, usualmente no se usa pues se edita desde css -->
+                </fieldset>
+
+                <fieldset>
+                            <legend>Información sobre Propiedad</legend>
+                            <label for="opciones">Compra o Vende</label>
+                            <select id="opciones"> <!--la etiqueta select es para que el usuario seleccione un valor, dentro van las opciones-->
+                                    <option value="" disabled selected>--Seleccione--</option> <!--Esta opcion para que indique al usuario que debe seleccionar, pero debe elegir una de las opciones, sin que 'Seleccione' pueda ser una opcion, ´por eso se coloca 'disabled', además se quiere que aparezca 'Seleccione' en este campo, para eso colocamos 'selected'-->
+                                    <option value="">Compra</option><!--La etiqueta option para indicar cada uno de los valores en select-->
+                                    <option value="">Vende</option>
+                            </select>
+
+                            <label for="cantidad">Cantidad: </label>
+                            <input type="number" id="cantidad" min="0" max="100" step="5"> <!--el tipo number para que solo se puedan colocar numeros en este campo. se puede establecer el valo minimo (min) y maximo (max), y los saltos cada cuantos valores, en este caso 'step' indica que los valores van de 5 en 5-->
+                </fieldset>
+
+                <fieldset>
+                            <legend>Contacto</legend>
+                            <p>¿Cómo desea ser contactado?</p>
+
+                            <div class="forma-contacto">
+                                <label for="telefono">Teléfono</label>
+                                <input type="radio" name="contacto "id="telefono" value="telefono"> <!--el type= "radio" para un boton de selección. El 'value' permite que cuando alguien lo seleccione, con PHP se pueda saber qué se ha seleccionado-->
+
+                                <label for="correo">E-mail</label>
+                                <input type="radio" name="contacto "id="correo" value="correo"> <!--para que en 'type= radio' se elija solo uno, se debe colocar el mismo 'name', en este caso 'contacto', esto es que si se elige uno, se desabilita el otro -->
+                            </div>
+
+                            <p>Si eligió Teléfono, elija la Fecha y la Hora</p>
+                            <label for="fecha">Fecha</label>
+                            <input type="date" id="fecha"> <!--el 'type= data' permite seleccionar de una calendario, dia, mes y año-->
+
+                            <label for="hora">Hora</label>
+                            <input type="time" id="hora" min="09:00" max="18:00"> <!--se puede establecer la hora de inicio y fin con los valores min y max, siempre en formato de 24 horas-->
+                </fieldset>
+
+                <input type="submit" value="Enviar" class="boton boton-verde"> <!--submit es el boton de envio - enviar. El value para el texto del botón-->
+
+            </form>
+    </main>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="anuncio.html">Anuncios</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <p class="copyright">Todos los Derechos Reservados 2019 &copy;</p>
+        </div>
+    </footer>
+</body>
+</html>

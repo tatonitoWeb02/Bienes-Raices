@@ -1,0 +1,538 @@
+/**Estilos Globales **/
+
+html {
+    font-size: 62.5%; /*este es un RESET para REMS, los rems son un tamaño que se usa en lugar de pixeles (px) para texto, aqui indicamos que muestre este porcentaje del tamaño de rem. esto se usa porque hay pantallas con mucha resolucion en px, y esta función escala el tamaño para que se vea proporcionado en
+    cualquier pantalla. esta es una regla para que se vea bien en todas las pantallas. Indicando este
+    porcentaje de 62.5% logramos hacer una equivalencia de 1rem = 10 px*/
+    box-sizing: border-box; /*Este código es llamado * { Box-sizing: Border-box } FTW, desarrollado por Paul Irish, para evitar que cuando se incremente el ancho de un elemento, no se afecte por el padding,
+    haciendo que el tamaño sea mayor al que realmente se necesita*/
+
+                        }
+*, *:before, *:after { /* apply a natural box layout model to all elements, but allowing components to change */
+    box-sizing: inherit; /*codigo de Pual Irish para el ancho de los elementos*/
+}
+
+img { /*esta propiedad se aplica a todoas las imagenes, y lo qe busca es que se adapten a los diferentes dispositivos, con el diseño web responsive */
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 3.4rem;
+}
+h3 {
+    font-size: 3.0rem;
+}
+h4 {
+    font-size: 2.6rem;
+}
+
+.contenedor {
+    width: 95%; /* Aplicamos width de 95% para que en dispositivos pequeños exista un pequeño margen a cada lado del borde del dispositivo -celular-ipad-   */
+    max-width: 120rem; /*120 rem -> 1200 px. Ajustamos el ancho maximo del contenedor. le indicamos que ponga una margen a derecha e izquierda, pero sin tocar arriba y abajo*/
+    margin: 0 auto;
+}
+body {
+    font-family: 'Lato', sans-serif; /*esta font-family se copia y pega aqui desde la pagina de google fonts, se aplica a todos los elementos del body */
+    font-size: 1.6rem; /*1.6 rem -> 16 px (16 px es el tamaño por defecto en los navegadores*/
+    line-height: 2; /*line-height es la separacion entre lineas de texto*/
+    }
+
+/**UTILIDADES**/
+
+.seccion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.fw-300 {
+    font-weight: 300;
+}
+.centrar-texto {
+    text-align: center;
+}
+.d-block { /*esta clase la definimos para cambiar el display:inline a display:block a enlaces e imagenes y asi poder
+    modificarlas con valores como width, margin, etc*/
+display: block!important;  /*para que tome todo el tamaño disponible*/
+}
+
+.contenido-centrado {
+    max-width: 800px;
+}
+
+/*BOTONES*/
+
+.boton {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.8rem;
+    padding: 1rem 3rem; /*De esta forma se entiende 1rem arriba(top), 3rem derecha, 1rem abajo(button), 3rem izquierda*/
+    margin-top: 3rem;
+    display: inline-block; /*los vinculos e imagenes son display:inline, deben convertirse a display:block para cambiar                             tamaños o este atributo display: inline-block / El probelma con inline;block es que toma todo el                         tamaño disponible y expande el elmento, por eso se puede usar display: inline-block*/
+    text-align: center;
+    border: 0; /*los botones para submit (enviar) y los imput, por defefto tienen un borde, en esta propiedad quitamos el borde sin que se afecten los botones que hemos creado en el sitio con la etiqueta <a>, es decir hipervínculos*/
+    display: block; /* aplicamos display block para que el botón ocupe todo el espacio de la pantalla cuando se visualiza en un dispositivo pequeño */
+    flex: 0 0 100%; /* esto se asocia al display block anterior para el boton ocupando todo el espacio */
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block; 
+        flex: 0 0 auto;
+    }    
+}
+
+.boton:hover {
+    cursor: pointer; /*el pseudoselctor hover para establecer el comportamiento de un boton, en este caso forzamos que en el boton submit de contacto cambie la apariencia del cursor y aparezca la manita*/
+}
+
+.boton-amarillo {
+    background-color: #E08709;
+}
+.boton-verde {
+    background-color: #71B100;
+}
+
+/*Seccion Header*/
+
+.contenido-header { /*esta es una clase, aplicandole el metodo flexbox solamente se aplica a los hijos, es decir a los                          niveles que estan inmediatamente debajo de esta clase, en este caso se aplica a la clase barra y al h1                       sin afectar los elementos dentro de nav*/
+    height: 100%;
+    display: flex;
+    flex-direction: column; /*APRENDER FLEXBOX*/
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .contenido-header {
+        text-align: left;
+    }
+}
+
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem; /*de esta forma le indico que el texto ocoupe maximo 600 px o 60 rem */
+    line-height: 2; /*esto es para el espaciado entre lineas del texto*/
+}
+
+.barra {
+    padding-top: 3rem; /*3 rem -> 30 px*/
+    } /* 'display: flex' esto es un nuevo estandar (flexbox) para posicionar elementos, junto con el css grid
+      space-between para colocar los elementos en los extremos dejando espacio enre ellos, 'padding-top' para el espacio encima del contenido de la barra (espacio interno)*/
+
+
+/*h2 { la parte inicial se llama selector (en este caso h2) y luego se abren llaves, todo lo que van entre llaves se aplica al selector*
+    color: chocolate; aqui se definen las propiedades (color) que sn definidas por css, y despues el valor (chocolate)
+    font-size: 14px;
+}
+
+/*#site-header { este selector viene del 'id' del html, se coloca numeral (#) para indicar que es un atributo 'id'
+    background-color: black;
+    color: antiquewhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.encabezado { la clase se puede reutilizar, mientras que un 'id' debe ser único, se referencia iniciando con punto (.encabezado)
+    background-color: rgb(60, 88, 32);
+}*/
+
+/* Este media query permite que se visualuce en una pantalla grande el logo y la navegacion a cada lado, mientras que en dispoitivos pequeños, por debajo de 768px, los iconos se ubican debajo del logo */
+@media (min-width: 768px) { 
+    .barra { 
+        display: flex;
+        justify-content: space-between;     
+        align-items: center;
+    }   
+}
+
+.mayuscula {
+    text-transform: uppercase; /*el atributo 'text-transform' para modificar texto, en este caso mayuscula (uppercase)*/
+}
+
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
+.site-header.inicio {
+    background: url(../img/header.jpg); /*este documento css esta en la carpeta css, y la imagen se encuentra en la carpeta img,
+                                        que esta afuera de css, por esta razón es necesario salir de este nivel, usando '../'  */
+    height: 100vh; /*height indica altura, pero para ajustarla al tamaño de la pantalla, en lugar de px, usamos vh
+                    ('viewport height') que me indica que la recorte para que se vea en el 100% de la pantalla*/
+    min-height: 60rem; /*con esta propiedad evitamos que cuando se haga mas pequeña la pantalla se recorte la imagen,
+                        entonces 'min-height' me permite establecer el tamaño minimo al que puede encogerse*/
+    background-position: center center; /*muestra la imagen desde el centro, expandiéndola, con el problema que se pierde buena parte*/
+    background-size: cover; /*la propiedad 'cover' hace que la imagen ocupe todo el espacio asignado, pero guardando proporciones, que se vea toda pero siendo proporcionada*/
+}
+
+.navegacion a {
+    color: rgba(255, 255, 255, 1);/*el color es rgb pero a indica el nivel de transparencia, que va entre o y 1 (puede anotarse hexadecimal tambien)
+    text-decoration: none para eliminar la linea de los hipervinculos, margin-right para establecer espacio a la derecha
+    de cada elemento*/
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+}
+
+@media (min-width: 768px) { /* aplicamos este media query para que en pantalla de pc los iconos aparezcan al otro exyremo del logo (display: inline-block), con un tamaño más pequeño que en el dispositivo movil (font-size: 2.2rem), y con el margen de 2rem a la derecha para que haya espaciado entre la navegacion  */
+    .navegacion a {
+        display: inline-block;
+        margin-right: 2rem; /*2 rem = 20 px*/
+        font-size: 1.8rem; /*1.8 rem -> 18 px*/
+
+    }
+    .navegacion a:last-of-type {/* '.navegacion a:last-of-type' a esto se le conoce como pseudo selector, indica que seleccione el ultimo de los
+        elemento y les aplique la propiedad, en este caso el link 'Contacto'sin margen a la derecha*/
+        margin: 0px;
+    }
+}
+
+.navegacion a:hover {/* el pseudo selector hover permite cambiar el color o propiedades al colocar el cursor encima*/
+    color: #71B100;
+}
+
+/* MOBILE MENU */
+.mobil-menu img {
+    width: 5rem;
+}
+
+@media (min-width: 768px) {
+    .mobil-menu {
+        display: none; /* cuando es un una pantalla grande desaparece el boton de hamburguesa */
+    }
+}
+
+.navegacion {
+    display: none; /* cuando es pantalla pequeña desaparecen los iconos de la barrra de navegación */
+}
+
+.navegacion:target { /* 'target' indica el destino o la accion al hacer click en el boton */
+    display: block; /* al hacer click en el boton muestra el menu de navegacion */
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: block; /* en pantalla grande se muestran los vinculos de la barrra de navegacion */
+    }
+}
+
+
+/**ICONOS NOSOTROS**/
+
+.encabezado-nosotros {
+    font-weight: 300;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .iconos-nosotros {
+        display: flex;
+        justify-content: space-between; /**para dejar el mismo espacio entre cada uno de los iconos*/
+    }
+}
+
+.icono {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .icono { 
+        flex-basis: calc(33.3% - 1rem); /*si se esta usando flexbox, en lugar de usar width (html) se usa flex-basis para definir el ancho de un objeto se establece el valor en porcentaje, pensando en el diseño web responsive, es decir que se ajuste a diferentes dispositivos sin que se desordene y mantenga proporciones La funcion calc(33.3% - 1rem) permite hacer operaciones, en este caso del procentaje de cada icono reste 1rem (10 px), para dejar mas espacio entre cada uno de los iconos */
+    }
+}
+
+
+
+/*ANUNCIOS*/
+
+@media (min-width: 768px) {
+    .contenedor-anuncios {
+        display: flex;
+        justify-content: space-between; /**para dejar el mismo espacio entre cada uno de los elementos*/
+        flex-wrap: wrap; /**/
+    }
+}
+
+.anuncio {
+    /*border-width: 1px;
+    border-style: solid;      Estas tres propiedades se pueden resumir en una sola linea (la siguiente),
+    border-color: #b5b5b5;                                 indicando ancho, estilo y color, respectivamente
+    */
+    border: 1px solid #B5B5B5;
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .anuncio {
+        flex: 0 0 calc(33.3% - 1rem);
+    /* Las tres propiedades a continuacion se pueden reducir a una sola linea: "flex: 0 0 calc(33.3% - 1rem);", que
+        significa grow(crecer), shrink(encoger) y basis(tamaño base)
+    flex-basis: calc(33.3% - 1rem);
+    flex-shrink: 0; /*por medio de esta propiedad se puede enconger el objeto, por defecto es 1, si no se quiere que
+                    cambie el tamaño se debe colocar en cero "0"
+
+    flex-grow: 0; /*esta propiedad puede hacer que el contenido crezca hata donde sea posible, cero "0" para que quede igual
+    */
+    }
+}
+
+.contenido-anuncio {
+    padding: 2rem;
+}
+.contenido-anuncio h3, .contenido-anuncio p{
+    margin: 0; /*estamos quitando el margen al titulo (h3) y al texto (p), pues por deferecto html coloca una margen, y en este momento no la quiero*/
+}
+.precio {
+    color: #71B100;
+    font-weight: 700;
+}
+.iconos-caracteristicas {
+    list-style: none; /*quita las viñetas a las unorder list*/
+    padding: 0;
+    display: flex; /*pone en el mismo nivel los iconos y el numero*/
+    justify-content: space-evenly; /*separa las imagenes o elementos y los centra*/
+    flex: 1; /*se expanden los iconos pero sin superar max-width*/
+    max-width: 500px; /*definimos este tamaño maximo para el ancho de los iconos*/
+}
+.iconos-caracteristicas li {
+    /*flex: 1; usa todo el espacio para distribuir los elementos, pero en la clase anterior 'space-evenly' hace los mismo*/
+    display: flex;
+}
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+}
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*CONTACTO HOME*/
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    height: 40rem;
+    background-position: center center;
+    background-size: cover;
+    display: flex; /*para poder ubicar este texto en el centro de manera horizontal*/
+    align-items: center; /*para poder ubicar este texto en el centro de manera vertical*/
+}
+.contenido-contacto {
+    flex: 0 0 95%; /*Cuando el contenido se comprime, colocamos flex: 1 para que crezca nuevamente*/
+    color: #ffffff;
+    
+}
+
+.contenido-contacto p {
+    font-size: 1.8rem;
+}
+
+/*SECCION INFERIOR*/
+
+@media (min-width: 768px) {
+    .seccion-inferior {
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog {
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales {
+        flex-basis: calc(40% - 2rem);
+    }
+}
+
+.entrada-blog {
+        margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.entrada-blog:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (min-width:769px) {
+    .entrada-blog .imagen {
+        flex-basis: 40%;
+    }
+    .entrada-blog .texto-entrada {
+        flex-basis: calc(60% - 3rem);
+    }
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+.texto-entrada a {
+    color: #000000;
+    text-decoration: none;
+}
+.texto-entrada h4::after { /*la forma h4::after se conoce como un pseudoelemento (after), en este caso indica que
+                            se cree un pseudolemento despues del 'h4', dentro de esta clase. Lo usamos para crear la linea verde del diseño*/
+    content: "";
+    display: block; /*definimos display:block, porque este pseudoelemento es de tipo inline, de esta manera podemos estabecer valores como width o height*/
+    width: 15rem;
+    height: 0.5rem;
+    background-color: #71B100;
+    margin-top: 1rem;
+}
+.texto-entrada span {
+    color: #E08709;
+}
+
+/*TESTIMONIALES*/
+.testimonial {
+    background-color: #71B100;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: #ffffff;
+    border-radius: 2rem; /*permite modificar las esquinas del cuadro*/
+}
+.testimonial p {
+    text-align: right;
+}
+
+.testimonial blockquote::before {
+    content: "";
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    height: 4rem;
+    display: block;
+    position: absolute; /*la posicion absoluta permite mover un objeto dentro del padre, que tiene la posicion relativa*/
+    left: -2rem; /*la comilla se corre a la izquierda 20 px (2rem)*/
+}
+.testimonial blockquote { /*la posicion relativa se coloca al padre, y al hijo que se quiere mover se coloca posicion absoluta*/
+    position: relative;
+    padding-left: 5rem;
+    font-weight: 300;
+}
+
+/*FOOTER*/
+.site-footer {
+    background: #333333;
+    margin-bottom: 0; /*el footer esta dentro de la clase seccion, y alli tiene margin bottom 2rem, aqui quitamos esa margen pero solo al footer*/
+}
+.contenedor-footer {
+    padding: 3rem 0; /*agregamos espacio de 3rem arriba y abajo, y 0 izquierda y derecha*/
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenedor-footer{
+    display: flex;
+    justify-content: space-between;
+    }
+}
+
+.site-footer nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .site-footer nav {
+        display: block;
+    }
+}
+
+
+.copyright {
+    margin: 0; /*creamos esta clase para eliminar la margen que presenta el parrafo <p> donde esta el copyright*/
+                /*asi eliminamos la franja bvlanca que se presenta al final de la pag9ina, bajo el footer*/
+    color: #ffffff;
+}
+
+/*PAGINAS INTERNAS*/
+
+/*NOSOTROS*/
+
+@media (min-width: 768px){
+.contenido-nosotros {
+    display: grid; /*esta es otra forma de organizar la página, se llama CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /*de esta manera se crean columnas de acuerdo a los contenidos, es posible escribirlo en porcentajes (50%, 50%) o decirle repeat(2, 1fr) que significa que repita dos veces y a cada una asigne una fraccion (1fr)*/
+    grid-column-gap: 2rem; /*Para colocar separacion entre las columnas*/
+    }
+}
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 0 1rem 0;
+}
+.texto-nosotros p {
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+/*ANUNCIOS*/
+.resumen-propiedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /*se usa para alinear horizontalmentre los elementos que manipulo con flexbox*/
+}
+
+/*CONTACTO*/
+
+.contacto p {
+    font-size: 1.4rem;
+    color: #4f4f4f;
+    margin: 2rem 0 0 0;
+}
+
+label {
+    display: block; /*En la etiqueta label se coloca como 'block' para que los campos se coloquen uno encima de otro*/
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+legend {
+    font-size: 2rem;
+    color:#4f4f4f;
+}
+
+/*A continuacion: las llaves son conocidas como selector de atributos, en este caso estamos seleccionando todos los atributos 'type' de la etiqueta 'input' (name, mail, tel, number, radio, date, time), menos el submit (enviar) y aplicamos las propiedades dentro de los corchetes. Tambien aplicamos estos estilos al campo 'textarea' y 'select'*/
+input:not([type="submit"]),
+textarea,
+select { 
+
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+input[type="radio"] { /*este selector de atributos [ ] para aplicar unicamente al type=radio*/
+    width: auto; /*este ancho para modificar la distancia entre los elementos, pues anteriormente seleccionamos todos los input y establecimos width:100% , de esta manera evitamos que esa propiedad se aplique a type:radio*/
+    margin: 0; /*quitamos este margen para poderlos alienar horizontalmente de manera central*/
+}
+
+select { /*estas propiedades se aplican unicamente al campo select, de esat forma podemos aplicar las propiedades anteriores. Al parecer que no este este prefijo -webkit-appearance: none;
+    appearance: none; no afecta la aplicaion de estas propiedades en este campo, unicamente desaparece la flecha para desplegar las opciones*/
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    height: 20rem;
+}
+
+.forma-contacto {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
